@@ -9,7 +9,14 @@
   }
 
   body {
-    @apply bg-slate-950 text-slate-100 antialiased;
+    @apply bg-brand-dark text-brand-cream antialiased;
+  }
+
+  
+  h1,
+  h2,
+  h3 {
+    font-family: Montserrat, system-ui, sans-serif;
   }
 }
 
@@ -23,6 +30,6 @@
   }
 
   .muted {
-    @apply text-slate-300/80;
+    @apply text-brand-cream/75;
   }
 }
