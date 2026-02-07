@@ -8,7 +8,7 @@ const badges = [
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-[600px] sm:min-h-[650px]">
+    <section id="hero" className="relative min-h-[680px] lg:min-h-[720px]">
       {/* Full-width background image */}
       <img
         src={heroImg}
@@ -20,10 +20,10 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-transparent" />
       
       {/* Content - edge to edge */}
-      <div className="relative flex min-h-[600px] sm:min-h-[650px] items-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-        <div className="max-w-4xl">
+      <div className="relative flex min-h-[680px] lg:min-h-[720px] items-start px-4 sm:px-6 lg:px-8 pt-10 pb-20">
+      <div className="max-w-[760px]">
           {/* Badges */}
-          <div className="flex flex-wrap gap-2.5">
+      <div className="flex flex-wrap gap-2.5 mt-10">
             {badges.map((badge) => (
               <span
                 key={badge.text}
@@ -36,11 +36,12 @@ export default function Hero() {
           </div>
 
           {/* Hero content */}
-          <div className="mt-10">
-            <div className="h-0.5 w-8 rounded-full bg-brand-red" />
-            <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+          <div className="mt-8">
+            <div className="h-1 w-16 rounded-full bg-brand-red" />
+
+            <h1 className="mt-7 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05]">
               Industrial Contracting
-              <span className="block mt-1 text-brand-redSoft">You Can Rely On</span>
+              <span className="block mt-2 text-brand-redSoft">You Can Rely On</span>
             </h1>
             <p className="mt-5 text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">
               Construction, engineering, maintenance, and industrial supply — delivered safely, on time, and to specification.
