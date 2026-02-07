@@ -2,7 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ---- BASE RESET ---- */
 @layer base {
+  html,
+  body,
+  #root {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
   html {
     font-family: Inter, system-ui, Arial, sans-serif;
     scroll-behavior: smooth;
@@ -12,7 +21,6 @@
     @apply bg-brand-dark text-brand-cream antialiased;
   }
 
-  
   h1,
   h2,
   h3 {
@@ -20,6 +28,7 @@
   }
 }
 
+/* ---- LAYOUT HELPERS ---- */
 @layer components {
   .container-x {
     @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
