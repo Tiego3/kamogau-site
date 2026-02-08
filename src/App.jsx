@@ -1,24 +1,11 @@
 import Layout from "./components/Layout";
 import Hero from "./components/Hero";
-
-function Section({ id, title, subtitle }) {
-  return (
-    <section id={id} className="section-y">
-      <div className="container-x">
-        <div className="max-w-3xl">
-          <div className="h-1 w-10 rounded-full bg-brand-red" />
-          <h2 className="mt-4 text-2xl font-bold tracking-tight sm:text-3xl">
-            {title}
-          </h2>
-          {subtitle ? <p className="mt-3 muted">{subtitle}</p> : null}
-        </div>
-        <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
-          Placeholder content for <span className="font-semibold">{id}</span>
-        </div>
-      </div>
-    </section>
-  );
-}
+import Services from "./components/Services";
+import About from "./components/About";
+import WhyChoose from "./components/WhyChoose";
+import Industries from "./components/Industries";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
@@ -27,7 +14,7 @@ export default function App() {
       <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-brand-navy">
         <div className="w-full">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
-            {/* Left: Logo placeholder */}
+            {/* Logo placeholder */}
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded bg-brand-red text-brand-cream font-heading font-extrabold">
                 K
@@ -76,30 +63,15 @@ export default function App() {
       {/* Hero */}
       <Hero />
       
-      {/* Sections */}
-      <Section
-        id="services"
-        title="Our Services"
-        subtitle="We'll convert this placeholder into the card grid from the mockup."
-      />
-      <Section
-        id="about"
-        title="About Us"
-        subtitle="We'll recreate the split layout and content styling."
-      />
-      <Section
-        id="contact"
-        title="Contact"
-        subtitle="We'll build the form + contact details section."
-      />
-      
+      {/* Page sections */}
+      <Services />
+      <About />
+      <WhyChoose />
+      <Industries />
+      <Contact />
+
       {/* Footer */}
-      <footer className="border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 text-sm muted">
-          © {new Date().getFullYear()} Kamogau Transport & Projects — Placeholder
-          footer.
-        </div>
-      </footer>
+      <Footer />
     </Layout>
   );
 }

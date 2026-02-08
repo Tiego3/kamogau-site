@@ -8,26 +8,24 @@ const badges = [
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-[680px] lg:min-h-[720px]">
-      {/* Full-width background image */}
+    <section id="hero" className="relative min-h-[680px] lg:min-h-[720px]">  
       <img
         src={heroImg}
         alt="Industrial background"
         className="absolute inset-0 h-full w-full object-cover"
       />
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-slate-950/75" />
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-transparent" />
-      
-      {/* Content - edge to edge */}
+      <div className="absolute inset-0 bg-brand-dark/80" />
+      <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/95 via-brand-dark/70 to-transparent" />
+   
       <div className="relative flex min-h-[680px] lg:min-h-[720px] items-start px-4 sm:px-6 lg:px-8 pt-10 pb-20">
-      <div className="max-w-[760px]">
+        <div className="max-w-[760px]">
           {/* Badges */}
-      <div className="flex flex-wrap gap-2.5 mt-10">
+          <div className="flex flex-wrap gap-2.5 mt-10">
             {badges.map((badge) => (
               <span
                 key={badge.text}
-                className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 text-xs font-medium text-slate-100 backdrop-blur-sm"
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 text-xs font-medium text-brand-cream backdrop-blur-sm"
               >
                 <span className="text-[10px] opacity-80">{badge.icon}</span>
                 {badge.text}
@@ -43,23 +41,25 @@ export default function Hero() {
               Industrial Contracting
               <span className="block mt-2 text-brand-redSoft">You Can Rely On</span>
             </h1>
-            <p className="mt-5 text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">
-              Construction, engineering, maintenance, and industrial supply — delivered safely, on time, and to specification.
+            <p className="mt-5 text-brand-cream/80 text-base sm:text-lg leading-relaxed max-w-2xl">
+              Construction, engineering, maintenance, and industrial supply. Delivered safely, on time, and to specification.
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center rounded-lg bg-brand-red px-6 py-3 text-sm font-semibold text-white hover:bg-brand-redSoft transition-colors"
+                className="inline-flex h-12 items-center justify-center rounded-md bg-brand-red px-8 text-sm font-semibold text-brand-cream shadow-soft hover:brightness-110 transition"
               >
-                Request a Quote
+                Request a Quote <span className="ml-2">→</span>
               </a>
+
               <a
                 href="#services"
-                className="inline-flex items-center justify-center rounded-lg border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors backdrop-blur-sm"
+                className="inline-flex h-12 items-center justify-center rounded-md border border-brand-cream/30 bg-brand-navy/60 px-8 text-sm font-semibold text-brand-cream hover:bg-brand-navy/80 transition"
               >
                 View Our Services
               </a>
             </div>
+
           </div>
         </div>
       </div>
