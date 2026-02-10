@@ -46,7 +46,7 @@ export default function App() {
             {/* Right: phone + CTA */}
             <div className="flex items-center gap-4">
               <div className="hidden md:flex items-center gap-2 text-sm text-brand-cream/80">
-                <span aria-hidden="true">📞</span>
+                <span aria-hidden="true"></span>
                 <span className="font-semibold">079 752 7824</span>
               </div>
               <a
@@ -69,7 +69,7 @@ export default function App() {
       <WhyChoose />
       <Industries />
       <Contact />
-
+    
       {/* Footer */}
       <Footer />
     </Layout>
