@@ -1,16 +1,61 @@
-# React + Vite
+# Kamogau Site
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web application built with React and Vite, featuring a clean and responsive interface styled with Tailwind CSS.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React** - A JavaScript library for building user interfaces
+- **Vite** - Next-generation frontend tooling for fast development
+- **Tailwind CSS** - Utility-first CSS framework for rapid UI development
+- **ESLint** - Code linting and quality assurance
+- **PostCSS** - CSS transformation tool
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📁 Project Structure
 
-## Expanding the ESLint configuration
+```
+kamogau-site/
+├── public/              # Static assets
+├── src/                 # Source files
+│   ├── components/      # React components
+│   ├── assets/          # Images, fonts, etc.
+│   └── App.jsx          # Main application component
+├── index.html           # HTML entry point
+├── package.json         # Project dependencies and scripts
+├── vite.config.js       # Vite configuration
+├── tailwind.config.js   # Tailwind CSS configuration
+├── postcss.config.js    # PostCSS configuration
+└── eslint.config.js     # ESLint configuration
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ⚙️ Configuration
+
+### Vite Configuration
+
+The project uses Vite with the `@vitejs/plugin-react` plugin for Fast Refresh during development. 
+
+### Tailwind CSS
+
+Tailwind CSS is configured via `tailwind.config.js`. 
+
+### ESLint
+
+Code quality is maintained through ESLint rules defined in `eslint.config.js`.
+
+
+
+## 👨‍💻 Author
+
+**Tiego3**
+- GitHub: [@Tiego3](https://github.com/Tiego3)
+
+## 🙏 Acknowledgments
+
+- React team 
+- Vite team 
+- Tailwind CSS for the utility-first approach
+
+
+---
+
+**Note:** This is an active project under development. Features and functionality may change as the project evolves.
