@@ -1,183 +1,89 @@
+import { motion } from "framer-motion";
+import Reveal from "./Reveal";
+
 const services = [
   {
+    n: "01",
     title: "Construction",
-    desc:
-      "Steel erection, general building, fabrication & modification for industrial facilities.",
+    body: "Steel erection, general building, fabrication and modification for industrial facilities.",
     items: ["Steel Erection", "General Building", "Fabrication & Modification"],
   },
   {
+    n: "02",
     title: "Engineering",
-    desc:
-      "Mechanical, electrical, and fire piping installations with compliance focus.",
+    body: "Mechanical, electrical and fire piping installations with compliance focus.",
     items: ["Mechanical Services", "Electrical Installations", "Fire Piping Systems"],
   },
   {
+    n: "03",
     title: "Industrial Services",
-    desc:
-      "Painting, insulation, scaffolding, and fencing for large-scale project sites.",
+    body: "Painting, insulation, scaffolding and fencing for large-scale project sites.",
     items: ["Painting & Insulation", "Scaffolding", "Fencing Installation"],
   },
   {
+    n: "04",
     title: "Maintenance",
-    desc:
-      "Building and industrial maintenance including plumbing and cleaning services.",
+    body: "Building and industrial maintenance — including plumbing and cleaning services.",
     items: ["Building Maintenance", "Industrial Cleaning", "Plumbing Services"],
   },
   {
+    n: "05",
     title: "Supply & Delivery",
-    desc:
-      "Industrial equipment and essential materials supplied and delivered nationwide.",
+    body: "Industrial equipment and essential materials supplied and delivered nationwide.",
     items: ["Industrial Equipment", "Valves & Pumps", "PPE & Materials"],
   },
 ];
 
-function Icon({ name }) {
-  const common = "h-5 w-5";
-  switch (name) {
-    case "construction":
-      return (
-        <svg className={common} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path
-            d="M3 20h18M6 20V9l6-5 6 5v11"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M9 20v-6h6v6"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      );
-    case "engineering":
-      return (
-        <svg className={common} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path
-            d="M10 3v4l-2 2v3l3 3h2l3 3h5v-5l-3-3V11l-3-3h-3l-2 2H7"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinejoin="round"
-          />
-        </svg>
-      );
-    case "industrial":
-      return (
-        <svg className={common} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path
-            d="M3 20h18M4 20V9l6 3V9l6 3V7l4 2v11"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      );
-    case "maintenance":
-      return (
-        <svg className={common} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path
-            d="M14.5 6.5a4 4 0 0 0-5.1 5.1L3 18l3 3 6.4-6.4a4 4 0 0 0 5.1-5.1l-2 2-2-2 2-2Z"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      );
-    case "delivery":
-      return (
-        <svg className={common} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path
-            d="M3 7h11v10H3V7Z"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M14 10h4l3 3v4h-7V10Z"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M7 19a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm11 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"
-            fill="currentColor"
-          />
-        </svg>
-      );
-    default:
-      return null;
-  }
-}
-
-function SectionHeading({ title, subtitle }) {
-  return (
-    <div className="text-center">
-      <div className="mx-auto h-1 w-16 rounded-full bg-brand-red" />
-      <h2 className="mt-4 font-heading text-2xl font-extrabold tracking-tight sm:text-3xl text-brand-navy">
-        {title}
-      </h2>
-      {subtitle ? (
-        <p className="mx-auto mt-3 max-w-2xl text-sm sm:text-base text-neutral-600">
-          {subtitle}
-        </p>
-      ) : null}
-    </div>
-  );
-}
-
 export default function Services() {
   return (
-    <section id="services" className="bg-brand-cream">
-      <div className="container-x section-y">
-        <SectionHeading
-          title="Our Services"
-          subtitle="End-to-end industrial contracting services for construction, engineering, maintenance, and supply operations."
-        />
-
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((s) => (
-            <div
-              key={s.title}
-              className="rounded-xl border border-black/5 bg-white p-6 shadow-card transition hover:shadow-cardHover hover:-translate-y-0.5"
-            >
-              {/* icon tile */}
-              <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-red/10 text-brand-red">
-                <Icon
-                  name={
-                    s.title === "Construction"
-                      ? "construction"
-                      : s.title === "Engineering"
-                      ? "engineering"
-                      : s.title === "Industrial Services"
-                      ? "industrial"
-                      : s.title === "Maintenance"
-                      ? "maintenance"
-                      : "delivery"
-                  }
-                />
-              </div>
-
-              <h3 className="mt-4 font-heading text-lg font-extrabold text-brand-navy">
-                {s.title}
-              </h3>
-              <p className="mt-2 text-sm text-neutral-600 leading-relaxed">
-                {s.desc}
-              </p>
-
-              <ul className="mt-4 space-y-2 text-sm text-brand-navy/90">
-                {s.items.map((it) => (
-                  <li key={it} className="flex items-start gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-red" />
-                    <span>{it}</span>
-                  </li>
-                ))}
-              </ul>
+    <section id="services" className="relative bg-background py-32 lg:py-44">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+        <div className="mb-20 grid gap-16 lg:grid-cols-[1fr_2fr] lg:gap-24">
+          <Reveal>
+            <div className="flex items-center gap-4">
+              <span className="h-px w-10 bg-ember" />
+              <span className="text-eyebrow">What we do</span>
             </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h2 className="text-display text-[clamp(2rem,5vw,4.5rem)] text-foreground">
+              Five disciplines.
+              <br />
+              <span className="italic text-ember">One standard.</span>
+            </h2>
+          </Reveal>
+        </div>
+
+        <div className="divide-y divide-border border-y border-border">
+          {services.map((s, i) => (
+            <Reveal key={s.n} delay={i * 0.05}>
+              <motion.article
+                whileHover="hover"
+                className="group relative grid gap-6 py-10 lg:grid-cols-[80px_1fr_1fr_auto] lg:items-center lg:gap-10"
+              >
+                {/* Hover bar */}
+                <motion.span
+                  variants={{ hover: { scaleX: 1 } }}
+                  initial={{ scaleX: 0 }}
+                  className="absolute inset-x-0 top-0 h-px origin-left bg-gradient-ember"
+                />
+                <div className="font-mono text-xs text-ember">{s.n}</div>
+                <h3 className="font-display text-3xl tracking-tight text-foreground lg:text-4xl">
+                  {s.title}
+                </h3>
+                <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
+                  {s.body}
+                </p>
+                <ul className="flex flex-col gap-1 text-xs text-muted-foreground">
+                  {s.items.map((it) => (
+                    <li key={it} className="flex items-center gap-2">
+                      <span className="h-px w-3 bg-ember/60" />
+                      {it}
+                    </li>
+                  ))}
+                </ul>
+              </motion.article>
+            </Reveal>
           ))}
         </div>
       </div>
