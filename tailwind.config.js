@@ -15,25 +15,27 @@ export default {
         },
         // Redesign palette — reads from CSS custom properties in index.css so
         // light/dark mode just swaps the variable values, no class changes needed.
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-        surface: "var(--surface)",
-        "surface-elevated": "var(--surface-elevated)",
+        // Vars store raw "L C H" triplets (see index.css) so opacity modifiers
+        // like bg-ember/30 work correctly; border already has alpha baked in.
+        background: "oklch(var(--background) / <alpha-value>)",
+        foreground: "oklch(var(--foreground) / <alpha-value>)",
+        surface: "oklch(var(--surface) / <alpha-value>)",
+        "surface-elevated": "oklch(var(--surface-elevated) / <alpha-value>)",
         border: {
           DEFAULT: "var(--border)",
           strong: "var(--border-strong)",
         },
         ember: {
-          DEFAULT: "var(--ember)",
-          glow: "var(--ember-glow)",
+          DEFAULT: "oklch(var(--ember) / <alpha-value>)",
+          glow: "oklch(var(--ember-glow) / <alpha-value>)",
         },
         primary: {
-          DEFAULT: "var(--primary)",
-          foreground: "var(--primary-foreground)",
+          DEFAULT: "oklch(var(--primary) / <alpha-value>)",
+          foreground: "oklch(var(--primary-foreground) / <alpha-value>)",
         },
         muted: {
-          DEFAULT: "var(--muted)",
-          foreground: "var(--muted-foreground)",
+          DEFAULT: "oklch(var(--muted) / <alpha-value>)",
+          foreground: "oklch(var(--muted-foreground) / <alpha-value>)",
         },
       },
       fontFamily: {

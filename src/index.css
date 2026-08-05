@@ -8,21 +8,29 @@
  * These variables are unused by the current live sections until each one is
  * migrated, so this block is inert on production until then.
  */
+/*
+ * NOTE: color variables below are stored as raw "L C H" component triplets
+ * (no oklch() wrapper, no alpha) so Tailwind's <alpha-value> opacity
+ * modifiers (bg-ember/30, bg-background/55, etc.) can inject alpha at
+ * build time. They're wrapped in oklch(...) inside tailwind.config.js.
+ * --border/--border-strong are the exception: they carry their own baked-in
+ * alpha and are used as complete colors, not opacity-modified.
+ */
 :root {
   --radius: 0.125rem;
 
-  --background: oklch(0.97 0.006 80);
-  --foreground: oklch(0.20 0.04 250);
-  --surface: oklch(0.94 0.008 80);
-  --surface-elevated: oklch(1 0 0);
+  --background: 0.97 0.006 80;
+  --foreground: 0.20 0.04 250;
+  --surface: 0.94 0.008 80;
+  --surface-elevated: 1 0 0;
 
-  --primary: oklch(0.52 0.17 27);
-  --primary-foreground: oklch(0.98 0.005 80);
-  --ember: oklch(0.52 0.17 27);
-  --ember-glow: oklch(0.60 0.19 27);
+  --primary: 0.52 0.17 27;
+  --primary-foreground: 0.98 0.005 80;
+  --ember: 0.52 0.17 27;
+  --ember-glow: 0.60 0.19 27;
 
-  --muted: oklch(0.92 0.01 80);
-  --muted-foreground: oklch(0.42 0.02 250);
+  --muted: 0.92 0.01 80;
+  --muted-foreground: 0.42 0.02 250;
 
   --border: oklch(0.20 0.04 250 / 12%);
   --border-strong: oklch(0.20 0.04 250 / 24%);
@@ -32,18 +40,18 @@
 }
 
 .dark {
-  --background: oklch(0.18 0.04 250);
-  --foreground: oklch(0.96 0.008 80);
-  --surface: oklch(0.22 0.045 250);
-  --surface-elevated: oklch(0.26 0.05 250);
+  --background: 0.18 0.04 250;
+  --foreground: 0.96 0.008 80;
+  --surface: 0.22 0.045 250;
+  --surface-elevated: 0.26 0.05 250;
 
-  --primary: oklch(0.52 0.17 27);
-  --primary-foreground: oklch(0.98 0.005 80);
-  --ember: oklch(0.52 0.17 27);
-  --ember-glow: oklch(0.60 0.19 27);
+  --primary: 0.52 0.17 27;
+  --primary-foreground: 0.98 0.005 80;
+  --ember: 0.52 0.17 27;
+  --ember-glow: 0.60 0.19 27;
 
-  --muted: oklch(0.26 0.05 250);
-  --muted-foreground: oklch(0.72 0.018 250);
+  --muted: 0.26 0.05 250;
+  --muted-foreground: 0.72 0.018 250;
 
   --border: oklch(1 0 0 / 10%);
   --border-strong: oklch(1 0 0 / 20%);
@@ -68,7 +76,7 @@
     font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--muted-foreground);
+    color: oklch(var(--muted-foreground));
   }
 
   .bg-gradient-ember {
@@ -85,9 +93,16 @@
 
   .ember-glow {
     box-shadow:
-      0 0 0 1px oklch(0.68 0.19 38 / 0.3),
-      0 0 40px -8px oklch(0.68 0.19 38 / 0.5);
+      0 0 0 1px oklch(var(--ember) / 0.3),
+      0 0 40px -8px oklch(var(--ember) / 0.5);
   }
+}
+
+#services,
+#about,
+#industries,
+#contact {
+  scroll-margin-top: 5.5rem;
 }
 
 /* Hide native cursor only on hover-capable devices — used once CustomCursor lands */

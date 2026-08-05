@@ -1,68 +1,115 @@
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import heroImg from "../assets/hero.jpg";
 
-const badges = [
-  { icon: "✓", text: "Eskom Vendor" },
-  { icon: "✓", text: "BBBEE Level 1" },
-  { icon: "✓", text: "CSD Registered" }
+const headline = [
+  { text: "Industrial", ember: false },
+  { text: "Contracting,", ember: false },
+  { text: "you", ember: true },
+  { text: "can", ember: true },
+  { text: "rely", ember: true },
+  { text: "on.", ember: true },
 ];
 
 export default function Hero() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1.05, 1.18]);
+  const opacity = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
+
   return (
-    <section id="hero" className="relative min-h-[680px] lg:min-h-[720px]">  
-      <img
-        src={heroImg}
-        alt="Industrial background"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-brand-dark/80" />
-      <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/95 via-brand-dark/70 to-transparent" />
-   
-      <div className="relative flex min-h-[680px] lg:min-h-[720px] items-start px-4 sm:px-6 lg:px-8 pt-10 pb-20">
-        <div className="max-w-[760px]">
-          {/* Badges */}
-          <div className="flex flex-wrap gap-2.5 mt-10">
-            {badges.map((badge) => (
-              <span
-                key={badge.text}
-                className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 text-xs font-medium text-brand-cream backdrop-blur-sm"
-              >
-                <span className="text-[10px] opacity-80">{badge.icon}</span>
-                {badge.text}
+    <section ref={ref} id="top" className="relative h-screen min-h-[640px] overflow-hidden">
+      {/* Parallax image */}
+      <motion.div style={{ y, scale }} className="absolute inset-0 -top-6 will-change-transform">
+        <img
+          src={heroImg}
+          alt="Industrial construction site at twilight"
+          className="h-full w-full object-cover"
+          fetchpriority="high"
+        />
+        <div className="absolute inset-0 bg-background/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/20 to-background" />
+        <div className="absolute inset-0" style={{ backgroundImage: "var(--gradient-vignette)" }} />
+      </motion.div>
+
+      {/* Content */}
+      <motion.div
+        style={{ y: textY, opacity }}
+        className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-4 pt-24 pb-28 sm:px-6 lg:px-10"
+      >
+        <h1 className="text-display max-w-4xl text-[clamp(2.25rem,8.5vw,6.5rem)] text-foreground">
+          {headline.map((word, i) => (
+            <motion.span
+              key={word.text}
+              initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.9, delay: 0.15 + i * 0.1, ease: [0.25, 1, 0.5, 1] }}
+              className="mr-[0.25em] inline-block"
+            >
+              {word.ember ? <span className="text-ember">{word.text}</span> : word.text}
+            </motion.span>
+          ))}
+        </h1>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.55 }}
+          className="mt-6 flex items-center gap-4"
+        >
+          <span className="h-px w-10 bg-ember" />
+          <span className="text-eyebrow">Eskom Vendor · BBBEE Level 1 · CSD Registered</span>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.75 }}
+          className="mt-10 grid gap-8 md:grid-cols-[1fr_auto] md:items-end"
+        >
+          <p className="max-w-md text-base leading-relaxed text-muted-foreground">
+            Construction, engineering, maintenance, and industrial supply.
+            Delivered safely, on time, and to specification.
+          </p>
+          <div className="flex flex-wrap items-center gap-4">
+            <a
+              href="#contact"
+              className="group relative inline-flex items-center gap-3 overflow-hidden bg-ember px-7 py-4 text-xs uppercase tracking-[0.22em] text-primary-foreground"
+            >
+              <span className="absolute inset-0 translate-y-full bg-foreground transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0" />
+              <span className="relative">Request a quote</span>
+              <span className="relative transition-transform duration-500 group-hover:translate-x-1">→</span>
+            </a>
+            <a
+              href="#services"
+              className="group inline-flex items-center gap-3 px-2 py-4 text-xs uppercase tracking-[0.22em] text-foreground"
+            >
+              <span className="relative">
+                View our services
+                <span className="absolute -bottom-1 left-0 h-px w-full origin-right scale-x-100 bg-foreground transition-transform duration-500 group-hover:origin-left group-hover:scale-x-0" />
               </span>
-            ))}
+            </a>
           </div>
+        </motion.div>
+      </motion.div>
 
-          {/* Hero content */}
-          <div className="mt-8">
-            <div className="h-1 w-16 rounded-full bg-brand-red" />
-
-            <h1 className="mt-7 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05]">
-              Industrial Contracting
-              <span className="block mt-2 text-brand-redSoft">You Can Rely On</span>
-            </h1>
-            <p className="mt-5 text-brand-cream/80 text-base sm:text-lg leading-relaxed max-w-2xl">
-              Construction, engineering, maintenance, and industrial supply. Delivered safely, on time, and to specification.
-            </p>
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <a
-                href="#contact"
-                className="inline-flex h-12 items-center justify-center rounded-md bg-brand-red px-8 text-sm font-semibold text-brand-cream shadow-soft hover:brightness-110 transition"
-              >
-                Request a Quote <span className="ml-2">→</span>
-              </a>
-
-              <a
-                href="#services"
-                className="inline-flex h-12 items-center justify-center rounded-md border border-brand-cream/30 bg-brand-navy/60 px-8 text-sm font-semibold text-brand-cream hover:bg-brand-navy/80 transition"
-              >
-                View Our Services
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.8 }}
+        style={{ opacity }}
+        className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2"
+      >
+        <span className="text-eyebrow text-[0.55rem]">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="h-6 w-px bg-gradient-to-b from-ember to-transparent"
+        />
+      </motion.div>
     </section>
   );
 }
