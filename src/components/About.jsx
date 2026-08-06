@@ -1,94 +1,94 @@
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import Reveal from "./Reveal";
+import steel from "../assets/texture-steel.jpg";
+
+const facts = [
+  { label: "Registration", value: "2018/203605/07" },
+  { label: "CSD Number", value: "MAAA0601904" },
+  { label: "Eskom Vendor", value: "11088726" },
+  { label: "BBBEE Status", value: "Level 1" },
+];
+
 export default function About() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
+
   return (
-    <section id="about" className="bg-brand-cream">
-      <div className="container-x section-y">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-        
+    <section id="about" ref={ref} className="relative bg-surface py-32 lg:py-44 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="grid gap-16 lg:grid-cols-2 lg:gap-24 items-center">
+          <Reveal>
+            <div className="relative aspect-[4/5] overflow-hidden">
+              <motion.img
+                style={{ y }}
+                src={steel}
+                alt="Molten steel"
+                className="absolute inset-0 h-[130%] w-full object-cover"
+                loading="lazy"
+                width={1280}
+                height={1280}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/20 to-transparent" />
+              <div className="absolute bottom-8 left-8 right-8">
+                <div className="text-eyebrow mb-3">eMalahleni, Mpumalanga</div>
+                <div className="text-display text-3xl">Wholly South African owned.</div>
+              </div>
+            </div>
+          </Reveal>
+
           <div>
-            <div className="h-1 w-16 rounded-full bg-brand-red" />
-            <h2 className="mt-4 font-heading text-2xl sm:text-3xl font-extrabold tracking-tight text-brand-navy">
-              About Kamogau Transport &amp; Projects
-            </h2>
-            <div className="mt-6 space-y-4 text-sm sm:text-base text-neutral-700 leading-relaxed">
-              <p>
-                Established in 2018, Kamogau Transport &amp; Projects (Pty) Ltd is a wholly
-                South African-owned industrial contracting company based in eMalahleni,
-                Mpumalanga.
-              </p>
-              <p>
-                We provide comprehensive construction, engineering, industrial services,
-                maintenance, and supply solutions to South Africa’s energy, mining,
-                manufacturing, and infrastructure sectors.
-              </p>
-              <p>
-                As a BBBEE Level 1 contributor and registered Eskom vendor, we meet the
-                highest standards of compliance, quality, and operational excellence
-                required for government and enterprise contracts.
-              </p>
-            </div>
-
-            {/* Details */}
-            <div className="mt-8 pt-8 border-t border-black/10">
-              <div className="grid grid-cols-2 gap-x-8 gap-y-6">
-                <Info label="Registration" value="2018/203605/07" />
-                <Info label="CSD Number" value="MAAA0601904" />
-                <Info label="Eskom Vendor" value="11088726" />
-                <Info label="BBBEE Status" value={<span className="text-brand-red font-extrabold">Level 1</span>} />
+            <Reveal>
+              <div className="flex items-center gap-4 mb-8">
+                <span className="h-px w-10 bg-ember" />
+                <span className="text-eyebrow">About Kamogau</span>
               </div>
-            </div>
+            </Reveal>
 
-            <a
-              href="#contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-md bg-brand-red px-5 py-3 text-sm font-semibold text-brand-cream shadow-card hover:brightness-110 transition"
-            >
-              Get in Touch <span aria-hidden="true">→</span>
-            </a>
-          </div>
+            <Reveal delay={0.1} as="h2" className="text-display text-[clamp(2rem,4.5vw,3.75rem)] mb-10">
+              Built on compliance,
+              <br />
+              <span className="italic text-ember">delivered with discipline.</span>
+            </Reveal>
 
-          {/* Brand card */}
-          <div className="relative">
-            <div className="relative overflow-hidden rounded-xl bg-brand-navy shadow-soft">
-              <div className="aspect-square p-10 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="mx-auto mb-6 h-20 w-20 rounded-lg bg-brand-red flex items-center justify-center">
-                    <span className="font-heading font-extrabold text-4xl text-brand-cream">K</span>
+            <Reveal delay={0.2} as="p" className="text-muted-foreground leading-relaxed mb-6">
+              Established in 2018, Kamogau Transport &amp; Projects (Pty) Ltd is a
+              wholly South African-owned industrial contracting company based in
+              eMalahleni, Mpumalanga. We provide construction, engineering,
+              industrial services, maintenance and supply solutions to the
+              energy, mining, manufacturing and infrastructure sectors.
+            </Reveal>
+
+            <Reveal delay={0.3} as="p" className="text-muted-foreground leading-relaxed mb-12">
+              As a BBBEE Level 1 contributor and registered Eskom vendor, we
+              meet the highest standards of compliance, quality and
+              operational excellence required for government and enterprise
+              contracts.
+            </Reveal>
+
+            <Reveal delay={0.4}>
+              <dl className="grid grid-cols-2 gap-px bg-border-strong border border-border-strong">
+                {facts.map((f) => (
+                  <div key={f.label} className="bg-surface p-6">
+                    <dt className="text-eyebrow text-[0.6rem] mb-2">{f.label}</dt>
+                    <dd className="text-display text-xl text-foreground">{f.value}</dd>
                   </div>
-                  <div className="font-heading font-extrabold tracking-wide text-3xl text-brand-cream">
-                    KAMOGAU
-                  </div>
-                  <div className="mt-2 text-xs tracking-[0.22em] uppercase text-brand-cream/70">
-                    Transport &amp; Projects
-                  </div>
-                </div>
-              </div>
-            
-              <svg
-                className="absolute bottom-0 left-0 right-0 text-brand-red"
-                viewBox="0 0 600 160"
-                preserveAspectRatio="none"
-                aria-hidden="true"
+                ))}
+              </dl>
+            </Reveal>
+
+            <Reveal delay={0.5}>
+              <a
+                href="#contact"
+                className="mt-10 inline-flex items-center gap-2 text-eyebrow text-ember hover:gap-3 transition-all"
               >
-                <path
-                  fill="currentColor"
-                  opacity="0.18"
-                  d="M0,160 C210,40 360,190 600,60 L600,160 Z"
-                />
-              </svg>
-            </div>
+                Get in Touch <span aria-hidden="true">→</span>
+              </a>
+            </Reveal>
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function Info({ label, value }) {
-  return (
-    <div>
-      <div className="text-xs uppercase tracking-wider text-neutral-500">{label}</div>
-      <div className="mt-1 font-heading font-extrabold text-brand-navy">
-        {value}
-      </div>
-    </div>
   );
 }
