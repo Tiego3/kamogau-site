@@ -3,7 +3,7 @@ import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
 import About from "./components/About";
-import WhyChoose from "./components/WhyChoose";
+import Stats from "./components/Stats";
 import Industries from "./components/Industries";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -19,7 +19,7 @@ export default function App() {
       {/* Page sections */}
       <Services />
       <About />
-      <WhyChoose />
+      <Stats />
       <Industries />
       <Contact />
     

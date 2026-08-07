@@ -50,7 +50,9 @@ export default function Industries() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="text-display text-foreground text-[clamp(2rem,5vw,4.5rem)] mb-6">
-              Industries We Serve
+              Industries We
+              <br />
+              <span className="italic text-ember">Serve.</span>
             </h2>
             <p className="max-w-2xl text-sm sm:text-base text-muted-foreground leading-relaxed">
               Trusted by factories, utilities, mining operations, and large
