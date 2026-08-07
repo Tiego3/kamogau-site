@@ -46,10 +46,10 @@ export default function About() {
               </div>
             </Reveal>
 
-            <Reveal delay={0.1} as="h2" className="text-display text-[clamp(2rem,4.5vw,3.75rem)] mb-10">
-              Built on compliance,
+            <Reveal delay={0.1} as="h2" className="text-display text-foreground text-[clamp(2rem,4.5vw,3.75rem)] mb-10">
+              About Kamogau
               <br />
-              <span className="italic text-ember">delivered with discipline.</span>
+              <span className="text-ember">Transport &amp; Projects</span>
             </Reveal>
 
             <Reveal delay={0.2} as="p" className="text-muted-foreground leading-relaxed mb-6">

@@ -59,7 +59,7 @@ export default function Services() {
             <Reveal key={s.n} delay={i * 0.05}>
               <motion.article
                 whileHover="hover"
-                className="group relative grid gap-6 py-10 lg:grid-cols-[80px_1fr_1fr_auto] lg:items-center lg:gap-10"
+                className="group relative grid gap-6 py-10 lg:grid-cols-[80px_1fr_1fr_15rem] lg:items-center lg:gap-10"
               >
                 {/* Hover bar */}
                 <motion.span
