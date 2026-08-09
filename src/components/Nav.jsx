@@ -1,6 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 import ThemeToggle from "./ThemeToggle";
+import logoLight from "../assets/kamogau-logo-light.png";
+import logoDark from "../assets/kamogau-logo-dark.png";
 
 const links = [
   { label: "Services", href: "#services" },
@@ -31,17 +33,9 @@ export default function Nav() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-10">
-        <a href="#top" className="group flex items-center gap-3">
-          <div className="relative">
-            <div className="grid h-9 w-9 place-items-center bg-gradient-ember font-display text-lg text-primary-foreground">
-              K
-            </div>
-            <div className="pointer-events-none absolute -inset-1 -z-10 bg-ember/30 opacity-0 blur-md transition-opacity duration-500 group-hover:opacity-100" />
-          </div>
-          <div className="leading-none">
-            <div className="font-display text-base tracking-tight text-foreground">Kamogau</div>
-            <div className="text-eyebrow mt-0.5 text-[0.55rem]">Transport &amp; Projects</div>
-          </div>
+        <a href="#top" className="group flex items-center">
+          <img src={logoLight} alt="Kamogau Transport & Projects" className="logo-light h-9 w-auto" />
+          <img src={logoDark} alt="Kamogau Transport & Projects" className="logo-dark h-9 w-auto" />
         </a>
 
         <nav className="hidden items-center gap-10 md:flex">

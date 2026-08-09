@@ -105,6 +105,20 @@
   scroll-margin-top: 5.5rem;
 }
 
+/* Logo swaps between light/dark wordmark variants to match the .dark
+   toggle ThemeToggle.jsx applies to <html>. Not using Tailwind's dark:
+   variant here since darkMode isn't set to "class" in tailwind.config.js
+   and this toggle is manual, not media-query driven. */
+.logo-dark {
+  display: none;
+}
+.dark .logo-light {
+  display: none;
+}
+.dark .logo-dark {
+  display: block;
+}
+
 /* Hide native cursor only on hover-capable devices — used once CustomCursor lands */
 @media (hover: hover) and (pointer: fine) {
   .has-custom-cursor,

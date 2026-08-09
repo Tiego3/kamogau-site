@@ -1,4 +1,6 @@
 import { Icon } from "./icons";
+import logoLight from "../assets/kamogau-logo-light.png";
+import logoDark from "../assets/kamogau-logo-dark.png";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -8,15 +10,8 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-[2fr_1fr_1fr_1fr]">
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="h-9 w-9 bg-gradient-ember grid place-items-center font-display text-lg text-primary-foreground">
-                K
-              </div>
-              <div className="leading-none">
-                <div className="font-display text-base text-foreground">Kamogau</div>
-                <div className="text-eyebrow text-[0.55rem] mt-0.5">Transport &amp; Projects</div>
-              </div>
-            </div>
+            <img src={logoLight} alt="Kamogau Transport & Projects" className="logo-light h-9 w-auto mb-6" />
+            <img src={logoDark} alt="Kamogau Transport & Projects" className="logo-dark h-9 w-auto mb-6" />
             <p className="text-sm text-muted-foreground max-w-sm leading-relaxed">
               Industrial contracting with the operational strength, compliance,
               and professionalism for large-scale projects.
