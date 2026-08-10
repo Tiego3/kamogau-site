@@ -32,10 +32,10 @@ export default function Nav() {
         scrolled ? "border-b border-border" : "border-b border-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-10">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4 lg:px-10">
         <a href="#top" className="group flex items-center">
-          <img src={logoLight} alt="Kamogau Transport & Projects" className="logo-light h-9 w-auto" />
-          <img src={logoDark} alt="Kamogau Transport & Projects" className="logo-dark h-9 w-auto" />
+          <img src={logoLight} alt="Kamogau Transport & Projects" className="logo-light h-7 w-auto sm:h-9" />
+          <img src={logoDark} alt="Kamogau Transport & Projects" className="logo-dark h-7 w-auto sm:h-9" />
         </a>
 
         <nav className="hidden items-center gap-10 md:flex">
@@ -51,14 +51,14 @@ export default function Nav() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <span className="hidden text-sm font-semibold text-foreground sm:inline">
             079 752 7824
           </span>
           <ThemeToggle />
           <a
             href="#contact"
-            className="group relative inline-flex items-center gap-2 overflow-hidden border border-border-strong px-5 py-2.5 text-xs uppercase tracking-[0.18em] text-foreground transition-colors duration-500 hover:text-primary-foreground"
+            className="group relative inline-flex items-center gap-1.5 overflow-hidden whitespace-nowrap border border-border-strong px-3 py-2 text-[0.65rem] uppercase tracking-[0.1em] text-foreground transition-colors duration-500 hover:text-primary-foreground sm:gap-2 sm:px-5 sm:py-2.5 sm:text-xs sm:tracking-[0.18em]"
           >
             <span className="absolute inset-0 -translate-x-full bg-gradient-ember transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-x-0" />
             <span className="relative">Request Quote</span>

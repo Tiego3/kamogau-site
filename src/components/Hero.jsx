@@ -20,7 +20,7 @@ export default function Hero() {
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
 
   return (
-    <section ref={ref} id="top" className="relative h-screen min-h-[640px] overflow-hidden">
+    <section ref={ref} id="top" className="relative h-dvh min-h-[640px] overflow-hidden">
       {/* Parallax image */}
       <motion.div style={{ y, scale }} className="absolute inset-0 -top-6 will-change-transform">
         <img
@@ -37,7 +37,7 @@ export default function Hero() {
       {/* Content */}
       <motion.div
         style={{ y: textY, opacity }}
-        className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-4 pt-24 pb-28 sm:px-6 lg:px-10"
+        className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-4 pb-16 pt-24 sm:px-6 lg:justify-center lg:px-16 lg:pb-28 lg:pt-24"
       >
         <h1 className="text-display max-w-4xl text-[clamp(2.25rem,8.5vw,6.5rem)] text-foreground">
           {headline.map((word, i) => (

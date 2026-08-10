@@ -29,7 +29,7 @@ export default function ThemeToggle() {
       type="button"
       onClick={() => setTheme(next)}
       aria-label={`Switch to ${next} mode`}
-      className="relative grid h-9 w-9 place-items-center border border-border-strong text-foreground transition-colors duration-300 hover:text-ember"
+      className="relative grid h-8 w-8 place-items-center border border-border-strong text-foreground transition-colors duration-300 hover:text-ember sm:h-9 sm:w-9"
     >
       {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
     </button>
