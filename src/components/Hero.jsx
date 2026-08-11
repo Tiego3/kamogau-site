@@ -37,7 +37,7 @@ export default function Hero() {
       {/* Content */}
       <motion.div
         style={{ y: textY, opacity }}
-        className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-4 pb-16 pt-24 sm:px-6 lg:justify-center lg:px-16 lg:pb-28 lg:pt-24"
+        className="relative z-10 mx-auto flex h-full max-w-[1920px] flex-col justify-center px-4 pt-24 pb-28 sm:px-6 lg:px-[50px]"
       >
         <h1 className="text-display max-w-4xl text-[clamp(2.25rem,8.5vw,6.5rem)] text-foreground">
           {headline.map((word, i) => (
@@ -74,14 +74,6 @@ export default function Hero() {
             Delivered safely, on time, and to specification.
           </p>
           <div className="flex flex-wrap items-center gap-4">
-            <a
-              href="#contact"
-              className="group relative inline-flex items-center gap-3 overflow-hidden bg-ember px-7 py-4 text-xs uppercase tracking-[0.22em] text-primary-foreground"
-            >
-              <span className="absolute inset-0 translate-y-full bg-foreground transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0" />
-              <span className="relative">Request a quote</span>
-              <span className="relative transition-transform duration-500 group-hover:translate-x-1">→</span>
-            </a>
             <a
               href="#services"
               className="group inline-flex items-center gap-3 px-2 py-4 text-xs uppercase tracking-[0.22em] text-foreground"

@@ -13,7 +13,7 @@ const items = [
 export default function Marquee() {
   const loop = [...items, ...items];
   return (
-    <section className="border-y border-border bg-surface/50 overflow-hidden py-6">
+    <section className="border-y border-border bg-surface overflow-hidden py-6">
       <div className="flex animate-marquee whitespace-nowrap">
         {loop.map((item, i) => (
           <div key={i} className="flex items-center gap-12 px-12 text-eyebrow text-[0.7rem]">

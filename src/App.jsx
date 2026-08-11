@@ -9,13 +9,11 @@ import Industries from "./components/Industries";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ScrollProgress from "./components/ScrollProgress";
-import CustomCursor from "./components/CustomCursor";
 
 export default function App() {
   return (
     <Layout>
       <ScrollProgress />
-      <CustomCursor />
       <Nav />
 
       {/* Hero */}

@@ -119,14 +119,6 @@
   display: block;
 }
 
-/* Hide native cursor only on hover-capable devices — used once CustomCursor lands */
-@media (hover: hover) and (pointer: fine) {
-  .has-custom-cursor,
-  .has-custom-cursor * {
-    cursor: none !important;
-  }
-}
-
 /* ---- BASE RESET ---- */
 @layer base {
   html,
