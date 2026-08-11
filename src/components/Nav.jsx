@@ -32,7 +32,7 @@ export default function Nav() {
         scrolled ? "border-b border-border" : "border-b border-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4 lg:px-10">
+      <div className="mx-auto flex max-w-[1920px] items-center justify-between px-4 py-3 sm:px-6 sm:py-4 lg:px-[80px]">
         <a href="#top" className="group flex items-center">
           <img src={logoLight} alt="Kamogau Transport & Projects" className="logo-light h-7 w-auto sm:h-9" />
           <img src={logoDark} alt="Kamogau Transport & Projects" className="logo-dark h-7 w-auto sm:h-9" />

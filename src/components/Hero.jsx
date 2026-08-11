@@ -37,7 +37,7 @@ export default function Hero() {
       {/* Content */}
       <motion.div
         style={{ y: textY, opacity }}
-        className="relative z-10 mx-auto flex h-full max-w-[1920px] flex-col justify-center px-4 pt-24 pb-28 sm:px-6 lg:px-[50px]"
+        className="relative z-10 mx-auto flex h-full max-w-[1920px] flex-col justify-center px-4 pt-24 pb-28 sm:px-6 lg:px-[80px]"
       >
         <h1 className="text-display max-w-4xl text-[clamp(2.25rem,8.5vw,6.5rem)] text-foreground">
           {headline.map((word, i) => (
